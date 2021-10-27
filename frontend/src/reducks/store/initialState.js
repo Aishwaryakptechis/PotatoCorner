@@ -5,7 +5,7 @@ const initialState = {
         next: null,
         previous: null
     },
-    user: {
+    users: {
         user_name: '',
         email: '',
         token: '',

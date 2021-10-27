@@ -42,7 +42,7 @@ export default class API {
         formData.append('password', password);
         console.log('password', password);
         const savedPost = await api
-            .post('/user/signup/', formData)
+            .post('/users/signup/', formData)
             .then(response => {
                 console.log(response.data);
                 return response.data;
@@ -57,7 +57,7 @@ export default class API {
         formData.append('email', email);
         formData.append('password', password);
         const savedPost = await api
-            .post('/user/signin/', formData)
+            .post('/users/signin/', formData)
             .then(response => {
                 return response.data;
             })
@@ -68,7 +68,7 @@ export default class API {
     };
     getUsers = async token => {
         const posts = await api
-            .get('/user/', {
+            .get('/users/', {
                 data: {},
                 headers: {
                     Authorization: token

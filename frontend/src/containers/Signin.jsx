@@ -45,7 +45,7 @@ const SignIn = () => {
           <input type="password" onChange={inputPassword} required placeholder="Password "value={password} />
           <br /> <br />
           <button onClick={signInButton}>SIGN IN</button>
-          <p>Not a Member? <a href= "">Join Us</a></p>
+          <p>Not a Member? <a href= "SignUp">Join Us</a></p>
           </div>
           </div>
     </section>

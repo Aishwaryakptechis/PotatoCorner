@@ -24,9 +24,9 @@ export const signUp = (user_name, email, password) => {
         }
 
         return api.signUp(user_name, email, password)
-            .then((user) => {
-                dispatch(signUpAction(user))
-				localStorage.setItem(LOGIN_USER_KEY, JSON.stringify(user));
+            .then((users) => {
+                dispatch(signUpAction(users))
+				localStorage.setItem(LOGIN_USER_KEY, JSON.stringify(users));
                 dispatch(push("/"))
             }).catch((error) => {
                 alert("Failed to connect API to add a post")
@@ -44,9 +44,9 @@ export const signIn = (email, password) => {
         }
 
         return api.signIn(email, password)
-            .then((user) => {
-                dispatch(signInAction(user))
-				localStorage.setItem(LOGIN_USER_KEY, JSON.stringify(user));
+            .then((users) => {
+                dispatch(signInAction(users))
+				localStorage.setItem(LOGIN_USER_KEY, JSON.stringify(users));
                 dispatch(push("/"))
             }).catch((error) => {
                 alert("Failed to connect API to add a post")

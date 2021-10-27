@@ -13,8 +13,8 @@ function Header() {
                     <nav class="navbar">
                         <ul class="tag">
                             <li class="nav">
-                                <a class="signin" href="./login.html">Sign in</a>
-                                <img src= {cart} alt="" />
+                                <a class="signin" href="Signin">Sign in</a>
+                               <a href = "Cart"> <img src= {cart} alt="" /></a>
                             </li>
                         </ul>
                     </nav>

@@ -9,7 +9,7 @@ export const SIGN_IN = "SIGN_IN";
 export const signInAction = (users) => {
     return {
         type: "SIGN_IN",
-        payload: users 
+        payload: users
     }
 }
 export const SIGN_OUT = "SIGN_OUT";
