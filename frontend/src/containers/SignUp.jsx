@@ -56,7 +56,7 @@ export default function SignUp() {
                         <br /> <br />
                         <button onClick={signUpButton}>SIGN UP</button>
                         <p>
-                            Already a Member? <a href="./login.html">sign in</a>
+                            Already a Member? <a href="SignIn">sign in</a>
                         </p>
                     </div>
                 </div>
