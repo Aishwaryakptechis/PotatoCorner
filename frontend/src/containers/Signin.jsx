@@ -1,60 +1,80 @@
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../reducks/users/operations';
+import Home from '../containers/Home';
+import CrossX from '../assets/img/cross.png';
+import { push } from 'connected-react-router';
 
-import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import Footer from "../components/common/Footer";
-import { signIn } from "../reducks/users/operations";
-import Header from '../components/common/Header'
-import Items from "../components/common/Items";
-import Background from "../components/common/Background";
-
-
-
-
-const SignIn = () => {
+const Signin = () => {
     const dispatch = useDispatch();
-  
-    const [email, setEmail] = useState(""),
-      [password, setPassword] = useState("");
-  
-    const inputEmail = (event) => {
-      setEmail(event.target.value);
+
+    const closeButton = () => {
+        dispatch(push('/'));
     };
-  
-    const inputPassword = (event) => {
-      setPassword(event.target.value);
+
+    const [email, setEmail] = useState(''),
+        [password, setPassword] = useState('');
+
+    const inputEmail = event => {
+        setEmail(event.target.value);
     };
-  
-    const signInButton = (event) => {
-      event.preventDefault();
-      dispatch(signIn(email, password));
-      setEmail("");
-      setPassword("");
+
+    const inputPassword = event => {
+        setPassword(event.target.value);
+    };
+
+    const signInButton = () => {
+        dispatch(signIn(email, password));
+        setEmail('');
+        setPassword('');
     };
     return (
         <>
-<Header/>
-<Background />
-<Items/>
-<section class="popup">
-      <div class="popup-inner">
-        <h1>SIGN IN</h1>
-        <div class="popup-input">
-          <input type="email" onChange={inputEmail} required placeholder="Email-address" value={email} />
-          <br /><br />
-          <input type="password" onChange={inputPassword} required placeholder="Password "value={password} />
-          <br /> <br />
-          <button onClick={signInButton}>SIGN IN</button>
-          <p>Not a Member? <a href= "SignUp">Join Us</a></p>
-          </div>
-          </div>
-    </section>
+            <Home />
+            <section class="popup">
+                <div class="popup-inner">
+                    <div class="popup-preview">
+                        
+                            <span onClick={closeButton}>
+                                <img src={CrossX} class="close" />
+                            </span>
+                            <div class="input">
+                                <h2>PotaoCorner</h2>
+                                <h1>SIGN IN</h1>
+                                <input
+                                    type="email"
+                                    onChange={inputEmail}
+                                    required
+                                    placeholder="Email address"
+                                    value={email}
+                                />{' '}
+                                <br />
+                                <br />
+                                <input
+                                    type="password"
+                                    onChange={inputPassword}
+                                    required
+                                    placeholder="Password"
+                                    vlaue={password}
+                                />
+                            </div>
+                            <br />
 
-<Footer/>
-
+                            <button class="button" onClick={signInButton}>
+                                SIGN IN
+                            </button>
+                            <p class="bottom">
+                                Not a Member?{' '}
+                                <a href="/signup">
+                                    <u>Join Us.</u>
+                                </a>{' '}
+                            </p>
+                        </div>
+                    
+                </div>
+            </section>
         </>
-    
     );
 };
 
-export default SignIn;
+export default Signin;

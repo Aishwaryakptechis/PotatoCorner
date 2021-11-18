@@ -8,7 +8,7 @@ class Order(models.Model):
     class Meta(object):
         db_table = 'order'
 
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         User, on_delete=models.CASCADE, db_index=True
     )
     total_price = models.DecimalField(
@@ -51,10 +51,10 @@ class OrderItem(models.Model):
     class Meta(object):
         db_table = 'order_item'
 
-    order_id = models.ForeignKey(
+    order = models.ForeignKey(
         Order, on_delete=models.CASCADE, db_index=True
     )
-    item_id = models.ForeignKey(
+    item = models.ForeignKey(
         Item, on_delete=models.CASCADE, db_index=True
     )
     quantity = models. IntegerField(
@@ -66,3 +66,5 @@ class OrderItem(models.Model):
     updated_at = models.DateTimeField(
         'Updated At', blank=True, auto_now=True
     )
+
+    

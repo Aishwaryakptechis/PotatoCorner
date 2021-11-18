@@ -33,11 +33,58 @@ body {
 	}
 	
 }
+.main-visual img {
+  height: 80%;
+  width: 100%;
+}
+.main-visual img {
+  width: 100%;
+  height: 500px;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.main-visual .main-catch {
+  top: 175px;
+  position: absolute;
+  color: white;
+  left: 72px;
+  font-size: 17px;
+  margin: 0;
+}
+
+.main-visual .main-catch .text-1 {
+  font-family: Futura;
+  font-weight: bold;
+  width: 100%;
+  font-size: 50px;
+  margin: 0;
+  color: #f8cd3b;
+}
+
+.main-visual .main-catch .text-2 {
+  font-family: Futura;
+  font-weight: bold;
+  width: 100%;
+  font-size: 50px;
+  margin: 0;
+  color: #f8cd3b;
+}
+.main-visual .main-catch img {
+    position: relative;
+    margin-top: -30%;
+    right: -30%;
+    width: 50%;
+    float: right;
+    height: 50%;
+}
+
 .main img.image1 {
 	width: 100%;
 	position: relative;
 	height: 450px;
-}@media screen and (max-width: 540px) {
+}
+@media screen and (max-width: 540px) {
 	.main img.image1 {
 		height: 200px;
 	}
@@ -330,6 +377,48 @@ body {
 	background-color: #aa2911;
 	color: #f8cd3b;
 }
+.images ul li .number {
+	margin: 0;
+    width: 60px;
+    /* margin-left: 25
+px
+; */
+    padding: 2px;
+    background-color: #aa2911;
+    color: #f8cd3b;
+}
+
+.images ul li .number .plus,
+.images ul li .number .minus,
+.images ul li .number .count {
+	padding: 3px;
+}
+
+.images .number .plus,
+.images .number .minus {
+	padding: 3px;
+	cursor: pointer;
+}
+
+.box2 table {
+	margin: 0;
+	width: 100%;
+	color: #aa2911;
+	border-collapse: collapse;
+}
+.box2 .border {
+	border-top: 1px solid black;
+}
+.body .submit {
+	background-color: #aa2911;
+	color: #f8cd3b;
+	width: 140px;
+	border: none;
+	font-size: 25px;
+	font-family: Roboto;
+	cursor: pointer;
+	
+}
 
 /***************
 *****Footer*****
@@ -384,8 +473,9 @@ body {
 	font-weight: bold;
 	position: absolute;
 	left: 88%;
-	border-radius: 10%;
+	border-radius: 5%;
 	top: 15%;
+	border: 0;
 }
 @media only screen and (max-width: 600px) {
 	.foot .btn {
@@ -456,7 +546,11 @@ body {
 	left: 35vw;
 	top: 15%;
 	width: 30%;
-	height: 50%;
+}
+.close {
+	position: relative;
+    float: right;
+    margin-top: -10%;
 }
 @media only screen and (max-width: 1024px) {
 	.popup .popup-inner {
@@ -487,6 +581,14 @@ body {
 .popup .popup-inner h2 {
 	position: relative;
 	color: brown;
+	left: 6%;
+
+}
+.popup .popup-inner h1 {
+	position: relative;
+	color: brown;
+	/* font-size: 20px;
+    font-weight: bold; */
 }
 .popup .popup-input {
 	display: block;
@@ -500,13 +602,15 @@ body {
 	border: 1;
 	border: 1px solid #aa2911;
 }
-.popup .popup-input button {
+ .button {
 	width: 73%;
 	height: 5vh;
 	background-color: #aa2911;
 	color: #f8cd3b;
 	font-size: larger;
+	border: 0;
 }
+
 .thankyou {
 	text-align: center;
 	font-size: 30px;
@@ -570,6 +674,7 @@ body {
 }
 .top-b {
 	background-color: #f8cd3b;
+	width: 123%;
 }
 .top-b h3 {
 	color: #aa2911;
@@ -977,4 +1082,204 @@ body {
 }
 .ull{
 	margin-left: 9%;
+}
+.box {
+	width: 100%;
+	height: 120px;
+	background-color: #F8CD3B;
+	position: relative;
+}
+
+.box p {
+	font-family: Roboto;
+	color: #AA2911;
+	font-size: 30px;
+	text-align: center;
+	margin: 0 40%;
+	position: absolute;
+	top: 40px;
+	/* left: 5%; */
+}
+
+@media screen and (max-width: 400px) {
+	.box p {
+		font-family: Roboto;
+		color: #F8CD3B;
+		font-size: 30px;
+		text-align: center;
+		margin: 0 15%;
+		position: absolute;
+		top: 40px;
+		/* left: 5%; */
+	}
+}
+
+.details {
+	width: 100%;
+	margin: 50px 0;
+}
+.details .product-details {
+	width: 70%;
+	margin: 0 auto;
+	font-family: Roboto;
+}
+
+.details .box2 table {
+	margin: 0;
+	width: 100%;
+	color: #AA2911;
+	border-collapse: collapse;
+}
+.details .box2 .border {
+	border-top: 1px solid #000000;
+}
+
+/* .details .box2 tr,
+td {
+  padding-right: 78px;
+  padding-left: 1px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+} */
+
+.details h3 {
+	font-family: Roboto;
+	color: black;
+	font-weight: bolder;
+	margin: 0;
+}
+
+.details h4 {
+	font-family: Roboto;
+	color: black;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 20px auto;
+}
+
+.details p {
+	font-family: Roboto;
+	color: #000000;
+	font-size: 15px;
+	font-weight: normal;
+}
+.details .product-details .box2 tr {
+	height: 2em;
+}
+
+.details .product-details .box2 .td-item {
+	width: 60%;
+}
+
+.details .product-details .box2 .td-quantity {
+	width: 10%;
+}
+
+.details .product-details .box2 .td-price {
+	width: 10%;
+}
+
+.details .product-details .box2 .border {
+	border-top: 2px solid black;
+	font-weight: bold;
+	color: #AA2911;
+	white-space: nowrap;
+}
+.details .total p {
+	font-family: Roboto;
+	color: #AA2911;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/* .details .box2 .selected1 {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  margin-left: 65%;
+}
+
+.details .box2 .selected2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details .box2 .total {
+  display: flex;
+  justify-content: space-between;
+} */
+.details .dispatch {
+	width: 55%;
+	margin: 0 15%;
+}
+
+.details .dispatch .form {
+	font-family: Roboto;
+	color: #000000;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.details .dispatch .form input {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px 0 35px;
+	font-size: 1.2em;
+	border: none;
+	background-color: #EAEAEA;
+}
+
+.details .submit {
+	background-color: #AA2911;
+	color: #F8CD3B;
+	width: 140px;
+	border: none;
+	font-size: 25px;
+	font-family: Roboto;
+	cursor: pointer;
+	
+}
+
+@media screen and (max-width: 600px) {
+	.details {
+		width: 80%;
+	}
+  ul.items li img {
+    width: 40%;
+  }
+  ul.items li .info{
+    margin-top: -29%;
+  }
+  ul.items li .name{
+    margin: -5% 0% 26% 27%;
+  }
+}
+.message p {
+	font-family: Roboto;
+	color: #000000;
+	width: 100%;
+	font-size: 35px;
+  text-align: center;
+}
+.message .color{
+	color: #AA2911;
+}
+@media screen and (max-width: 400px) {
+	.message p {
+		font-family: Roboto;
+		color: #000000;
+		
+	}
+}
+.backhome button {
+	background-color: #AA2911;
+	color: #F8CD3B;
+	margin-top: 50px;
+	border: 0;
+	padding: 15px 25px;
+	font-size: 20px;
+	font-family: Roboto;
+	cursor: pointer;
+	margin: 0 0 0 40%;
 }

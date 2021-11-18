@@ -1,68 +1,91 @@
-import React from 'react'
-import Header from '../components/common/Header'
-import Footer from '../components/common/Footer'
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { signUp } from "../reducks/users/operations";
-import Items from '../components/common/Items';
-import Background from '../components/common/Background';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../reducks/users/operations';
+import CrossX from '../assets/img/cross.png';
+import Home from '../containers/Home';
+import { push } from 'connected-react-router';
 
+const SignUp = () => {
+    const dispatch = useDispatch();
 
-export default function SignUp() {
-  const dispatch = useDispatch();
-  const [user_name, setUserName] = useState(""),
-    [email, setEmail] = useState(""),
-    [password, setPassword] = useState("");
-  const inputUserName = (event) => {
-    setUserName(event.target.value);
-  };
-  const inputEmail = (event) => {
-    setEmail(event.target.value);
-  };
-  const inputPassword = (event) => {
-    setPassword(event.target.value);
-  };
-  const signUpButton = () => {
-    dispatch(signUp(user_name, email, password));
-    setUserName("");
-    setEmail("");
-    setPassword("");
-  };
-  
-
+    const closeButton = () => {
+        dispatch(push('/'));
+    };
+    const [user_name, setUserName] = useState(''),
+        [email, setEmail] = useState(''),
+        [password, setPassword] = useState('');
+    const inputUserName = event => {
+        setUserName(event.target.value);
+    };
+    const inputEmail = event => {
+        setEmail(event.target.value);
+    };
+    const inputPassword = event => {
+        setPassword(event.target.value);
+    };
+    const signUpButton = () => {
+        dispatch(signUp(user_name, email, password));
+        setUserName('');
+        setEmail('');
+        setPassword('');
+    };
     return (
         <>
-            <Header />
-            <Background />
-
-            <Items />
+            <Home />
             <section class="popup">
                 <div class="popup-inner">
-                    <h2>SIGN UP</h2>
-                    <div class="popup-input">
-                        <input type="name " onChange={inputUserName} required placeholder="Name" value={user_name} />
+                    <div class="popup-preview">
+                        <span onClick={closeButton}>
+                            <img src={CrossX} class="close" />
+                        </span>
+                        <div class="input">
+                            <h2>PotatoCorner</h2>
+                            <h1>SIGN UP</h1>
+                            <input
+                                type="text"
+                                class="form-control"
+                                onChange={inputUserName}
+                                placeholder="Enter User Name"
+                                value={user_name}
+                                required
+                            />
+                            <br />
+                            <br />
+                            <input
+                                type="email"
+                                class="form-control"
+                                onChange={inputEmail}
+                                placeholder="Enter email"
+                                value={email}
+                                required
+                            />
+                            <br />
+                            <br />
+                            <input
+                                type="password"
+                                class="form-control"
+                                onChange={inputPassword}
+                                placeholder="Password"
+                                value={password}
+                                required
+                            />
+                        </div>
                         <br />
-                        <br />
-                        <input type="email" onChange={inputEmail} required placeholder="Email-address" value={email} />
-                        <br />
-                        <br />
-                        <input
-                            type="password"
-                            onChange={inputPassword}
-                            required
-                            placeholder="Password "
-                            value={password}
-                        />
-                        <br /> <br />
-                        <button onClick={signUpButton}>SIGN UP</button>
-                        <p>
-                            Already a Member? <a href="SignIn">sign in</a>
+
+                        <button class="button" onClick={signUpButton}>
+                            SIGN UP
+                        </button>
+                        <p class="bottom">
+                            Already a Member?{' '}
+                            <a href="/signin">
+                                <u>Sign In.</u>
+                            </a>{' '}
                         </p>
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </>
     );
-}
+};
+
+export default SignUp;

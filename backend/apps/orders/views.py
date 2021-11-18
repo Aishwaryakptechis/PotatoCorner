@@ -1,16 +1,13 @@
 from django.shortcuts import render
-
-
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from ..users.mixins import CustomLoginRequiredMixin
-from .models import  Order
+from .models import OrderItem, Order
 from apps.carts.models import Cart
 from .serializers import OrderSerializer
 from django.core import serializers
-from .models import Order, OrderItem
 from .forms import OrderForm, OrderItemForm
 import json
 
@@ -18,6 +15,10 @@ import json
 class OrderAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+    def get(self, request, *args, **kwargs):
+        self.queryset = Cart.objects.order_by('-created_at').filter(user=request.login_user)
+        return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         # Save to order
@@ -37,7 +38,7 @@ class OrderAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
 
         # Save to order items
         for cart in carts:
-            order_item_form = OrderItemForm({"order_id": order.id, "item_id":cart.item.id, "quantity":cart.quantity})
+            order_item_form = OrderItemForm({"order": order.id, "item":cart.item.id, "quantity":cart.quantity})
             order_item_form.save()
         
         # Delete cart items

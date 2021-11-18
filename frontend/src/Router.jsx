@@ -1,28 +1,22 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import Home from './containers/Home';
-import SignUp from './containers/SignUp';
-import Signin from './containers/Signin';
-import ThankYou from './containers/ThankYou';
 import Cart from './containers/Cart';
+import Home from './containers/Home';
 import Shipping from './containers/Shipping';
-
-
+import Signin from './containers/Signin';
+import SignUp from './containers/SignUp';
+import ThankYou from './containers/ThankYou';
 
 const Router = () => {
     return (
         <>
             <Switch>
                 <Route exact path={'/'} component={Home} />
-                <Route exact path={'/SignUp'} component={SignUp} />
-                <Route exact path={'/Signin'} component={Signin} />
-                <Route exact path={'/ThankYou'} component={ThankYou} />
-                <Route exact path={'/home'} component={Home} />
-                <Route exact path={'/Cart'} component={Cart}/>
-                <Route exact path={'/Shipping'} component={Shipping}/>
-
-
-
+                <Route exact path={'/signup'} component={SignUp} />
+                <Route exact path={'/signin'} component={Signin} />
+                <Route exact path={'/cart'} component={Cart} />
+                <Route exact path={'/shipping'} component={Shipping} />
+                <Route exact path={'/thankyou'} component={ThankYou} />
             </Switch>
         </>
     );

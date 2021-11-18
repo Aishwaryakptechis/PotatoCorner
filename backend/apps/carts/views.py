@@ -13,8 +13,12 @@ from .forms import CartForm
 class CartList(CustomLoginRequiredMixin, generics.ListAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['user_id']
+    # filter_backends = [DjangoFilterBackend]
+    # filterset_fields = ['user_id']
+
+    def get(self, request, *args, **kwargs):
+        self.queryset = Cart.objects.order_by('-created_at').filter(user=request.login_user)
+        return self.list(request, *args, **kwargs)
 
 class CartAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
     queryset = Cart.objects.all()
@@ -22,7 +26,7 @@ class CartAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         # Set the user who login
-        request.data['user_id'] = request.login_user.id
+        request.data['user'] = request.login_user.id
         return self.create(request, *args, **kwargs)
 
 class CartDelete(CustomLoginRequiredMixin, generics.DestroyAPIView):

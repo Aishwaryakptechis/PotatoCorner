@@ -1,23 +1,35 @@
-import React from 'react'
-import Header from '../components/common/Header'
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { getUser } from '../reducks/users/selectors';
 
-
-export default function ThankYou() {
+const ThankYou = () => {
+    const selector = useSelector(state => state);
+    const user = JSON.parse(localStorage.getItem('LOGIN_USER_KEY'));
+    useEffect(() => {
+        console.log(user);
+    }, []);
     return (
-        <>
-            <Header />
-            <div class="top-b1">
-                <h3>- Thank you for your ordering - </h3>
+        <div>
+            <div class="box">
+                <p>- Thank you for your ordering -</p>
             </div>
-            <section>
-                <div class="thank">
-                    <p>Thank you for your ordering. We received your request.</p>
-                    <p>Our stuff will be contacting with you to tell next steps.</p>
-                    <div class="submit1">
-                        <button type="submit">Back to Home</button>
-                    </div>
-                </div>
-            </section>
-        </>
+
+            <div class="message">
+                <p>
+                    Thank you for your ordering <span class="color">{user.user_name}</span>. We received your request.{' '}
+                    <br />
+                    <br />
+                    Our staff will be contacting with you to tell next steps.
+                </p>
+            </div>
+
+            <div class="backhome">
+                <a href="/">
+                    <button>Back to Home</button>
+                </a>
+            </div>
+        </div>
     );
-}
+};
+
+export default ThankYou;
